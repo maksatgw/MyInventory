@@ -8,10 +8,10 @@ namespace MyInventory.Persistence.Abstract
 {
     public interface IGenericDataAccess<T> where T : class
     {
-        public List<T> Get();
-        T Get(int id);
-        void Insert(T item);
-        void Update(T item);
-        void Delete(T item);
+        Task<List<T>> Get();
+        Task<T> Get(int id);
+        Task Insert(T item);
+        Task Update(T item);
+        Task Delete(T item);
     }
 }

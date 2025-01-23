@@ -1,4 +1,5 @@
-﻿using MyInventory.Persistence.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MyInventory.Persistence.Abstract;
 using MyInventory.Persistence.Context;
 using System;
 using System.Collections.Generic;
@@ -17,32 +18,31 @@ namespace MyInventory.Persistence.Repository
             _appDbContext = appDbContext;
         }
 
-        public List<T> Get()
+        public async Task<List<T>> Get()
         {
-            return _appDbContext.Set<T>().ToList();
+            return await _appDbContext.Set<T>().ToListAsync();
         }
 
-        public T Get(int id)
+        public async Task<T> Get(int id)
         {
-            return _appDbContext.Set<T>().Find(id);
+            return await _appDbContext.Set<T>().FindAsync(id);
         }
 
-        public void Insert(T item)
+        public async Task Insert(T item)
         {
-            _appDbContext.Add(item);
-            _appDbContext.SaveChanges();
+            await _appDbContext.AddAsync(item);
+            await _appDbContext.SaveChangesAsync();
         }
 
-        public void Update(T item)
+        public async Task Update(T item)
         {
             _appDbContext.Update(item);
-            _appDbContext.SaveChanges();
+            await _appDbContext.SaveChangesAsync();
         }
-        public void Delete(T item)
+        public async Task Delete(T item)
         {
             _appDbContext.Remove(item);
-            _appDbContext.SaveChanges();
+            await _appDbContext.SaveChangesAsync();
         }
     }
-}
 }

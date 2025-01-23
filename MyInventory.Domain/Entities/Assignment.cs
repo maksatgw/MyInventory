@@ -10,7 +10,7 @@ namespace MyInventory.Domain.Entities
     public class Assignment
     {
         public int AssignmentId { get; set; }
-        public string EquipmentId { get; set; }
+        public int EquipmentId { get; set; }
         public string AssignedUser { get; set; }
         public string AssignedUserLocation { get; set; }
         public DateTime AssignedDate { get; set; }

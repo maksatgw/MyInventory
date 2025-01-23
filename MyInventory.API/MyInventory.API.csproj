@@ -15,4 +15,11 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyInventory.Application\MyInventory.Application.csproj" />
+    <ProjectReference Include="..\MyInventory.Domain\MyInventory.Domain.csproj" />
+    <ProjectReference Include="..\MyInventory.Infrastructure\MyInventory.Infrastructure.csproj" />
+    <ProjectReference Include="..\MyInventory.Persistence\MyInventory.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyInventory.Persistence.Entity.Repository
+namespace MyInventory.Persistence.Entities.Repository
 {
     public class CategoryRepository : GenericRepository<Category>, ICategoryDataAccess
     {

@@ -3,7 +3,7 @@ using MyInventory.Persistence.Context;
 using MyInventory.Persistence.Entity.Abstract;
 using MyInventory.Persistence.Repository;
 
-namespace MyInventory.Persistence.Entity.Repository
+namespace MyInventory.Persistence.Entities.Repository
 {
     public class AssignmentHistoryRepository : GenericRepository<AssignmentHistory>, IAssignmentHistoryDataAccess
     {

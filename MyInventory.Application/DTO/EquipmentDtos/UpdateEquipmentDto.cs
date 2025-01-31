@@ -18,6 +18,6 @@ namespace MyInventory.Application.DTO.EquipmentDtos
         public int LocationId { get; set; }
         public string DateAdded { get; set; }
         public string DateUpdated { get; set; }
-        public List<EquipmentImageDto> EquipmentImages { get; set; }
+        public List<int>? EquipmentImageIds { get; set; } 
     }
 }

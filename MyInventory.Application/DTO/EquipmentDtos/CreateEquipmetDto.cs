@@ -17,7 +17,7 @@ namespace MyInventory.Application.DTO.EquipmentDtos
         public int CategoryId { get; set; }
         public int LocationId { get; set; }
         public string DateAdded { get; set; }
-        public string DateUpdated { get; set; }
-        public List<IFormFile> EquipmentImages { get; set; }
+        public string DateUpdated { get; set; } = DateTime.Now.ToString();
+        
     }
 }

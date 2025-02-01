@@ -14,12 +14,21 @@ namespace MyInventory.Application.Mapper.AutoMapperProfile
     {
         public MapProfile()
         {
+            #region Equipment
             CreateMap<Equipment, EquipmentDto>()
-           .ForMember(dest => dest.DateAdded, 
-                      opt => opt.MapFrom(src => src.DateAdded.ToShortDateString()))
-            .ForMember(dest => dest.DateUpdated,
-                       opt => opt.MapFrom(src => src.DateUpdated.ToShortDateString()));
-            CreateMap<EquipmentImage, EquipmentImageDto>();
+            .ForMember(dest => dest.DateAdded, opt => opt.MapFrom(src => src.DateAdded.ToShortDateString()))
+            .ForMember(dest => dest.DateUpdated, opt => opt.MapFrom(src => src.DateUpdated.ToShortDateString())).ReverseMap();
+
+            CreateMap<CreateEquipmetDto, Equipment>();
+            CreateMap<UpdateEquipmentDto, Equipment>();
+            #endregion
+
+            #region EquipmentImage
+            CreateMap<EquipmentImage, EquipmentImageDto>().ReverseMap();
+            CreateMap<CreateEquipmentImageDto, EquipmentImage>();
+            #endregion
+
+
         }
     }
 }

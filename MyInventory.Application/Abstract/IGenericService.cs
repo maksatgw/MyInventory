@@ -12,6 +12,12 @@ namespace MyInventory.Application.Abstract
         Task TInsert(T model);
         Task TUpdate(T model);
         Task<T> TGet(int id);
-        Task<List<T>> TGet();
+        Task Delete(TRead model);
+        Task BulkDelete(List<TRead> modelList);
+        Task<TRead> Insert(TCreate model);
+        Task Update(TUpdate model);
+        Task<TRead> Get(int id);
+        Task<List<TRead>> Get(List<int> idList);
+        Task<List<TRead>> Get();
     }
 }

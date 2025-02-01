@@ -19,34 +19,49 @@ namespace MyInventory.Persistence.Repository
             _appDbContext = appDbContext;
         }
 
-        public async Task<List<T>> Get()
+        public async Task<List<T>> GetAsync()
         {
             return await _appDbContext.Set<T>().ToListAsync();
         }
-
-        public async Task<T> Get(int id)
+        public async Task<List<T>> GetAsync(List<int> idList, string idField)
         {
-            return await _appDbContext.Set<T>().FindAsync(id);
+            return await _appDbContext.Set<T>().Where(e => idList.Contains((int)EF.Property<int>(e, idField))).AsNoTracking().ToListAsync();
         }
 
-        public async Task Insert(T item)
+        public async Task<T> GetAsync(int? id = null, string? idField = null, params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _appDbContext.Set<T>();
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            if (id != null && idField != null)
+            {
+                query = query.Where(e => EF.Property<int>(e, idField) == id.Value);
+            }
+            return await query.FirstOrDefaultAsync();
+        }
+
+        public async Task InsertAsync(T item)
         {
             await _appDbContext.AddAsync(item);
             await _appDbContext.SaveChangesAsync();
         }
 
-        public async Task Update(T item)
+        public async Task UpdateAsync(T item)
         {
             _appDbContext.Update(item);
             await _appDbContext.SaveChangesAsync();
         }
-        public async Task Delete(T item)
+        public async Task DeleteAsync(T item)
         {
-            _appDbContext.Remove(item);
+            _appDbContext.RemoveRange(item);
             await _appDbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<T>> Get(params Expression<Func<T, object>>[] includes)
+        public async Task<IEnumerable<T>> GetAsync(params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = _appDbContext.Set<T>();
 
@@ -57,5 +72,13 @@ namespace MyInventory.Persistence.Repository
 
             return await query.ToListAsync();
         }
+
+        public async Task BulkDeleteAsync(List<T> items)
+        {
+            _appDbContext.RemoveRange(items);
+            await _appDbContext.SaveChangesAsync();
+        }
+
+       
     }
 }

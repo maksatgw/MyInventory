@@ -16,10 +16,10 @@ namespace MyInventory.API.Extensions
         public static void AddApplicationDIContainer(this IServiceCollection services)
         {
             services.AddScoped<IEquipmentService, EquipmentService>();
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<ILocationService, LocationService>();
-            services.AddScoped<IAssignmentService, AssignmentService>();
-            services.AddScoped<IAssignmentHistoryService, AssignmentHistoryService>();
+            //services.AddScoped<ICategoryService, CategoryService>();
+            //services.AddScoped<ILocationService, LocationService>();
+            //services.AddScoped<IAssignmentService, AssignmentService>();
+            //services.AddScoped<IAssignmentHistoryService, AssignmentHistoryService>();
             services.AddScoped<IEquipmentImageService, EquipmentImageService>();
         }
 

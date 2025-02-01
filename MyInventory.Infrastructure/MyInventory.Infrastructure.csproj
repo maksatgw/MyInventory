@@ -11,4 +11,8 @@
     <ProjectReference Include="..\MyInventory.Persistence\MyInventory.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ExternalServices\" />
+  </ItemGroup>
+
 </Project>

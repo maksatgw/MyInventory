@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MyInventory.Application.Abstract
 {
-    public interface IGenericService<T> where T : class
+    public interface IGenericService<TRead, TCreate, TUpdate> where TRead : class where TCreate : class where TUpdate : class
     {
         /// <summary>
         /// Deletes an existing record.

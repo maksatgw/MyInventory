@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyInventory.API.Extensions;
 using MyInventory.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<MyInventoryDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddApplictonServices();
+builder.Services.AddPersistenceServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿using MyInventory.Domain.Entities;
+﻿using MyInventory.Application.DTO.CategoryDtos;
+using MyInventory.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyInventory.Application.Abstract
 {
-    public interface ICategoryService : IGenericService<Category>
+    public interface ICategoryService : IGenericService<CategoryDto, CreateCategoryDto, UpdateCategoryDto>
     {
     }
 }

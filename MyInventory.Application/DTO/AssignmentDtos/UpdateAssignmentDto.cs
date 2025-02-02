@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyInventory.Application.DTO.AssignmentDtos
 {
-    public class UpdateAssignmnetDto
+    public class UpdateAssignmentDto
     {
         public int AssignmentId { get; set; }
         public int EquipmentId { get; set; }

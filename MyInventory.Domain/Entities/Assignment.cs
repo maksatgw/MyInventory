@@ -11,12 +11,14 @@ namespace MyInventory.Domain.Entities
     {
         public int AssignmentId { get; set; }
         public int EquipmentId { get; set; }
-        public string AssignedUser { get; set; }
-        public string AssignedUserLocation { get; set; }
+        public int UserId { get; set; }
         public DateTime AssignedDate { get; set; }
         public string? AssignmentFilePath { get; set; }
 
         [ForeignKey("EquipmentId")]
         public virtual Equipment Equipment { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
     }
 }

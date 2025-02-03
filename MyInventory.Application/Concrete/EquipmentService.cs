@@ -60,7 +60,7 @@ namespace MyInventory.Application.Concrete
             {
                 //Get the equipment with the given id and include the EquipmentImages navigation property
                 //Then map the entity to dto
-                var value = _mapper.Map<EquipmentDto>(await _dataAccess.GetAsync(id,"EquipmentId",x=>x.EquipmentImages));
+                var value = _mapper.Map<EquipmentDto>(await _dataAccess.GetAsync(id,"EquipmentId",x=>x.EquipmentImages, x=>x.Category, x=>x.Location));
                 //Return the dto
                 return value;
             }

@@ -44,6 +44,8 @@ namespace MyInventory.Persistence.Entities.Repository
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Include(x => x.EquipmentImages)
+                .Include(x => x.Category)
+                .Include(x => x.Location)
                 .ToListAsync();
 
             return (items, totalItems);

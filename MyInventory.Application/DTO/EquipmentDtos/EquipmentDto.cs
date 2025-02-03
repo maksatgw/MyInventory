@@ -1,4 +1,6 @@
-﻿using MyInventory.Application.DTO.EquipmentImageDtos;
+﻿using MyInventory.Application.DTO.CategoryDtos;
+using MyInventory.Application.DTO.EquipmentImageDtos;
+using MyInventory.Application.DTO.LocationDtos;
 using MyInventory.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,14 +18,10 @@ namespace MyInventory.Application.DTO.EquipmentDtos
         public string? Model { get; set; }
         public string SerialNumber { get; set; }
         public string? Description { get; set; }
-        public int CategoryId { get; set; }
-        public int LocationId { get; set; }
         public string DateAdded { get; set; }
         public string DateUpdated { get; set; }
-        //public  Category Category { get; set; }
-        //public  Location Location { get; set; }
-        //public  Assignment Assignment { get; set; }
-        //public  List<AssignmentHistory> AssignmentHistories { get; set; }
+        public CategoryDto Category { get; set; }
+        public LocationDto Location { get; set; }
         public List<EquipmentImageDto> EquipmentImages { get; set; }
     }
 }
